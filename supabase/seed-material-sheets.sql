@@ -1,0 +1,20 @@
+insert into public.material_sheets (id, sizes) values
+('pond', '31x43" (1,2,4); 24x35" (1,2)'),
+('greenread', '31x43" (1,2,4); 24x35" (1,2)'),
+('artgloss', '31x43" (1,2,4); 24x35" (1,2)'),
+('artmatt', '31x43" (1,2,4); 24x35" (1,2)'),
+('artcard1', '31x43" (1,2,4); 24x35" (1,2)'),
+('artcard2', '31x43" (1,2,4); 24x35" (1,2)'),
+('ivory', '31x43" (1,2,4); 24x35" (1,2)'),
+('fancy', '31x43" (1,2,4); 24x35" (1,2)'),
+('duplex', '31x43" (1,2,4); 24x35" (1,2)'),
+('kraftbox', '31x43" (1,2,4); 24x35" (1,2)'),
+('eflute', '100x120 (1,2,4)'),
+('kraft', '31x43" (1,2,4); 24x35" (1,2)'),
+('st_gloss', '50x70 (1,2,4)'),
+('st_matt', '50x70 (1,2,4)'),
+('st_ppw', '50x70 (1,2,4)'),
+('st_ppc', '50x70 (1,2,4)'),
+('st_holo', '50x70 (1,2,4)'),
+('st_kraft', '50x70 (1,2,4)')
+on conflict (id) do update set sizes = excluded.sizes, updated_at = now();

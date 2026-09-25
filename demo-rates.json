@@ -1,0 +1,354 @@
+{
+ "paper.pond": {
+  "c": 42.5,
+  "s": 34
+ },
+ "paper.artgloss": {
+  "c": 47.5,
+  "s": 38
+ },
+ "paper.artmatt": {
+  "c": 47.5,
+  "s": 38
+ },
+ "paper.artcard1": {
+  "c": 50,
+  "s": 40
+ },
+ "paper.artcard2": {
+  "c": 55,
+  "s": 44
+ },
+ "paper.duplex": {
+  "c": 37.5,
+  "s": 30
+ },
+ "paper.kraft": {
+  "c": 40,
+  "s": 32
+ },
+ "film.PET": {
+  "c": 8.75,
+  "s": 7
+ },
+ "film.BOPP": {
+  "c": 6.875,
+  "s": 5.5
+ },
+ "film.OPPMATT": {
+  "c": 9.375,
+  "s": 7.5
+ },
+ "film.NYLON": {
+  "c": 13.75,
+  "s": 11
+ },
+ "film.MPET": {
+  "c": 10.625,
+  "s": 8.5
+ },
+ "film.AL": {
+  "c": 18.75,
+  "s": 15
+ },
+ "film.LLDPE": {
+  "c": 7.5,
+  "s": 6
+ },
+ "film.EVOH": {
+  "c": 22.5,
+  "s": 18
+ },
+ "film.MCPP": {
+  "c": 10,
+  "s": 8
+ },
+ "film.CPP": {
+  "c": 7.5,
+  "s": 6
+ },
+ "film.PETG": {
+  "c": 15,
+  "s": 12
+ },
+ "film.PVC": {
+  "c": 11.25,
+  "s": 9
+ },
+ "film.OPS": {
+  "c": 12.5,
+  "s": 10
+ },
+ "plate.offset": {
+  "c": 812.5,
+  "s": 650
+ },
+ "mr.offset": {
+  "c": 1500,
+  "s": 1200
+ },
+ "plate.flexo": {
+  "c": 4750,
+  "s": 3800
+ },
+ "mr.flexo": {
+  "c": 6250,
+  "s": 5000
+ },
+ "cyl.gravure": {
+  "c": 10625,
+  "s": 8500
+ },
+ "mr.gravure": {
+  "c": 10000,
+  "s": 8000
+ },
+ "press.offset": {
+  "c": 1.375,
+  "s": 1.1
+ },
+ "press.flexo": {
+  "c": 1.125,
+  "s": 0.9
+ },
+ "press.gravure": {
+  "c": 0.6875,
+  "s": 0.55
+ },
+ "fin.gold.set": {
+  "c": 2250,
+  "s": 1800
+ },
+ "fin.gold": {
+  "c": 0.3125,
+  "s": 0.25
+ },
+ "fin.silver.set": {
+  "c": 2250,
+  "s": 1800
+ },
+ "fin.silver": {
+  "c": 0.3125,
+  "s": 0.25
+ },
+ "fin.color.set": {
+  "c": 2250,
+  "s": 1800
+ },
+ "fin.color": {
+  "c": 0.375,
+  "s": 0.3
+ },
+ "fin.emboss.set": {
+  "c": 1875,
+  "s": 1500
+ },
+ "fin.emboss": {
+  "c": 0.225,
+  "s": 0.18
+ },
+ "fin.deboss.set": {
+  "c": 1875,
+  "s": 1500
+ },
+ "fin.deboss": {
+  "c": 0.225,
+  "s": 0.18
+ },
+ "fin.diecut.set": {
+  "c": 3125,
+  "s": 2500
+ },
+ "fin.diecut": {
+  "c": 0.15,
+  "s": 0.12
+ },
+ "coat.offset.varnish": {
+  "c": 7.5,
+  "s": 6
+ },
+ "coat.offset.uvfull": {
+  "c": 12.5,
+  "s": 10
+ },
+ "coat.offset.uvspot": {
+  "c": 15,
+  "s": 12
+ },
+ "coat.offset.uvspot.set": {
+  "c": 1875,
+  "s": 1500
+ },
+ "coat.offset.pvcgloss": {
+  "c": 22.5,
+  "s": 18
+ },
+ "coat.offset.pvcmatt": {
+  "c": 25,
+  "s": 20
+ },
+ "coat.offset.matt": {
+  "c": 17.5,
+  "s": 14
+ },
+ "coat.flexible.mattv": {
+  "c": 2.25,
+  "s": 1.8
+ },
+ "coat.gravure.mattv": {
+  "c": 2,
+  "s": 1.6
+ },
+ "coat.gravure.glossv": {
+  "c": 1.5,
+  "s": 1.2
+ },
+ "conv.lam": {
+  "c": 2.75,
+  "s": 2.2
+ },
+ "conv.boxglue": {
+  "c": 0.4375,
+  "s": 0.35
+ },
+ "conv.bag": {
+  "c": 3.5,
+  "s": 2.8
+ },
+ "conv.bind": {
+  "c": 3.75,
+  "s": 3
+ },
+ "conv.bindpage": {
+  "c": 0.025,
+  "s": 0.02
+ },
+ "conv.pouch.center": {
+  "c": 0.1875,
+  "s": 0.15
+ },
+ "conv.pouch.gusset": {
+  "c": 0.3125,
+  "s": 0.25
+ },
+ "conv.pouch.3side": {
+  "c": 0.225,
+  "s": 0.18
+ },
+ "conv.pouch.4side": {
+  "c": 0.275,
+  "s": 0.22
+ },
+ "conv.pouch.standup": {
+  "c": 0.5625,
+  "s": 0.45
+ },
+ "conv.zip": {
+  "c": 0.4375,
+  "s": 0.35
+ },
+ "conv.hanger": {
+  "c": 0.1,
+  "s": 0.08
+ },
+ "conv.thomson.set": {
+  "c": 7500,
+  "s": 6000
+ },
+ "conv.thomson": {
+  "c": 0.375,
+  "s": 0.3
+ },
+ "conv.sleeve": {
+  "c": 0.15,
+  "s": 0.12
+ },
+ "conv.labelcut": {
+  "c": 0.0625,
+  "s": 0.05
+ },
+ "conv.slit": {
+  "c": 0.0375,
+  "s": 0.03
+ },
+ "paper.greenread": {
+  "c": 45,
+  "s": 36
+ },
+ "paper.ivory": {
+  "c": 52.5,
+  "s": 42
+ },
+ "paper.fancy": {
+  "c": 150,
+  "s": 120
+ },
+ "paper.kraftbox": {
+  "c": 37.5,
+  "s": 30
+ },
+ "paper.eflute": {
+  "c": 11.25,
+  "s": 9
+ },
+ "paper.st_gloss": {
+  "c": 15,
+  "s": 12
+ },
+ "paper.st_matt": {
+  "c": 15,
+  "s": 12
+ },
+ "paper.st_ppw": {
+  "c": 27.5,
+  "s": 22
+ },
+ "paper.st_ppc": {
+  "c": 30,
+  "s": 24
+ },
+ "paper.st_holo": {
+  "c": 47.5,
+  "s": 38
+ },
+ "paper.st_kraft": {
+  "c": 20,
+  "s": 16
+ },
+ "press.offset.k": {
+  "c": 500,
+  "s": 400
+ },
+ "waste.offset.mr": {
+  "c": 150,
+  "s": 100
+ },
+ "waste.offset.run": {
+  "c": 3,
+  "s": 2
+ },
+ "waste.flexo.mr": {
+  "c": 400,
+  "s": 300
+ },
+ "waste.flexo.run": {
+  "c": 3,
+  "s": 2
+ },
+ "waste.gravure.mr": {
+  "c": 1000,
+  "s": 800
+ },
+ "waste.gravure.run": {
+  "c": 3,
+  "s": 2
+ },
+ "web.flexo": {
+  "c": 60,
+  "s": 60
+ },
+ "web.gravure": {
+  "c": 110,
+  "s": 110
+ }
+}
