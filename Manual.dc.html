@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>คู่มือการใช้งาน · Mee Printing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:radial-gradient(1200px 600px at 10% -10%,#c9efe9 0%,transparent 60%),radial-gradient(900px 500px at 100% 0%,#dff3ff 0%,transparent 55%),#f3f8f7;background-attachment:fixed;color:#15181e;font-family:'Noto Sans Thai','Noto Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#0f9488;text-decoration:none}
+a:hover{color:#0b7a70;text-decoration:underline}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+</style>
+</helmet>
+<div style="min-height:100vh">
+  <header style="position:sticky;top:0;z-index:10;background:rgba(255,255,255,.62);backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border-bottom:1px solid rgba(15,148,136,.14)">
+    <div style="max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:14px">
+      <img src="assets/logo-mee-t.png" alt="Mee Printing" style="height:44px;width:auto;display:block">
+      <div style="flex:1;min-width:0">
+        <div style="font-weight:700;font-size:16px;line-height:1.2">คู่มือการใช้งาน</div>
+        <div style="font-size:12px;color:#4a505c">ระบบประเมินราคางานพิมพ์ · Mee Printing</div>
+      </div>
+      <sc-if value="{{ standalone }}" hint-placeholder-val="{{ false }}"><a href="index.html" style="display:flex;align-items:center;gap:6px;height:38px;padding:0 14px;border-radius:11px;background:linear-gradient(135deg,#14b8a6,#0f9488 55%,#0b7a70);color:#fff;font-size:14px;font-weight:600;text-decoration:none;box-shadow:0 6px 18px -6px rgba(15,148,136,.55)">← กลับไปหน้าประเมินราคา</a></sc-if>
+    </div>
+  </header>
+
+  <main style="max-width:1120px;margin:0 auto;padding:28px 20px 80px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+    <nav style="position:sticky;top:84px;display:flex;flex-direction:column;gap:2px;padding:14px;border-radius:18px;background:rgba(255,255,255,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 30px -12px rgba(11,95,88,.18);flex:1 1 240px;max-width:280px">
+      <sc-if value="{{ canStaff }}" hint-placeholder-val="{{ false }}"><div style="display:flex;padding:3px;gap:2px;border-radius:11px;background:#e9f2f0;margin-bottom:8px">
+        <button onClick="{{ toCust }}" style="flex:1;border:none;border-radius:9px;height:34px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;background:{{ tcBg }};color:{{ tcFg }};box-shadow:{{ tcSh }}">ลูกค้า</button>
+        <button onClick="{{ toStaff }}" style="flex:1;border:none;border-radius:9px;height:34px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;background:{{ tsBg }};color:{{ tsFg }};box-shadow:{{ tsSh }}">เจ้าหน้าที่</button>
+      </div></sc-if>
+      <div style="font-size:12px;font-weight:600;color:#4a505c;padding:4px 10px 8px;letter-spacing:.04em">สารบัญ</div>
+      <a href="#s1" style="padding:8px 10px;border-radius:9px;font-size:14px;color:#15181e">1. ภาพรวมระบบ</a>
+      <sc-if value="{{ isCust }}" hint-placeholder-val="{{ true }}"><a href="#s2" style="padding:8px 10px;border-radius:9px;font-size:14px;color:#15181e">2. ประเมินราคา (ลูกค้า)</a>
+      <a href="#s3" style="padding:8px 10px;border-radius:9px;font-size:14px;color:#15181e">3. ตัวอย่าง 2D / 3D และอาร์ตเวิร์ก</a>
+      <a href="#s4" style="padding:8px 10px;border-radius:9px;font-size:14px;color:#15181e">4. ขอใบเสนอราคา / สั่งผลิต</a>
+      <a href="#s5" style="padding:8px 10px;border-radius:9px;font-size:14px;color:#15181e">5. PDF · บันทึก · เปรียบเทียบ</a></sc-if>
+      <sc-if value="{{ isStaff }}" hint-placeholder-val="{{ false }}">
+      <a href="#s6" style="padding:8px 10px;border-radius:9px;font-size:14px;color:#15181e">2. เข้าสู่ระบบเจ้าหน้าที่</a>
+      <a href="#s7" style="padding:8px 10px;border-radius:9px;font-size:14px;color:#15181e">3. รายละเอียดราคาและแถบกำไร</a>
+      <a href="#s8" style="padding:8px 10px;border-radius:9px;font-size:14px;color:#15181e">4. แก้ไขราคาต้นทุน</a>
+      <a href="#s9" style="padding:8px 10px;border-radius:9px;font-size:14px;color:#15181e">5. ใบเสนอราคาและงานที่บันทึก</a>
+      <a href="#s10" style="padding:8px 10px;border-radius:9px;font-size:14px;color:#15181e">6. การแจ้งเตือน LINE OA</a></sc-if>
+      <a href="#s11" style="padding:8px 10px;border-radius:9px;font-size:14px;color:#15181e">{{ faqNav }}. คำถามที่พบบ่อย</a>
+    </nav>
+
+    <div style="flex:999 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px">
+
+      <section id="s1" style="padding:26px 28px;border-radius:20px;background:rgba(255,255,255,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 30px -12px rgba(11,95,88,.18);display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;font-weight:600;color:#0f9488;letter-spacing:.06em">01</div>
+        <h2 style="margin:0;font-size:22px">ภาพรวมระบบ</h2>
+        <p style="margin:0;font-size:15px;line-height:1.75;color:#2d323b;text-wrap:pretty">ระบบประเมินราคางานพิมพ์ใช้คำนวณราคาเบื้องต้นของงานพิมพ์ 3 ระบบ คือ OFFSET, FLEXIBLE และ GRAVURE ราคาคำนวณบนเซิร์ฟเวอร์ (Supabase) ต้นทุนวัตถุดิบจึงไม่ถูกส่งมาที่เบราว์เซอร์ของลูกค้า ใช้ได้ทั้งมือถือ แท็บเล็ต และคอมพิวเตอร์</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+          <button onClick="{{ toCust }}" style="text-align:left;font:inherit;cursor:pointer;padding:14px 16px;border-radius:14px;background:{{ cBg }};border:1px solid {{ cBd }};box-shadow:{{ cSh }};display:flex;flex-direction:column;gap:4px">
+            <div style="font-weight:600;font-size:15px;color:#0b5f58">โหมดลูกค้า →</div>
+            <div style="font-size:14px;line-height:1.6;color:#2d323b">เลือกสเปก ดูตัวอย่าง ดูราคาขาย ขอใบเสนอราคา หรือสั่งผลิต</div>
+          </button>
+          <sc-if value="{{ canStaff }}" hint-placeholder-val="{{ false }}"><button onClick="{{ toStaff }}" style="text-align:left;font:inherit;cursor:pointer;padding:14px 16px;border-radius:14px;background:{{ sBg }};border:1px solid {{ sBd }};box-shadow:{{ sSh }};display:flex;flex-direction:column;gap:4px">
+            <div style="font-weight:600;font-size:15px;color:#0b5f58">โหมดเจ้าหน้าที่ →</div>
+            <div style="font-size:14px;line-height:1.6;color:#2d323b">ดูต้นทุนจริงและต้นทุนขาย ปรับกำไร แก้ไขราคา จัดการใบเสนอราคา</div>
+          </button></sc-if>
+        </div>
+        <div style="font-size:14px;line-height:1.7;color:#4a505c">ปุ่มบนแถบด้านบน: <b>ลูกค้า / เจ้าหน้าที่</b> สลับโหมด · <b>เปรียบเทียบ</b> ดูงานที่บันทึก · <b>TH / EN</b> เปลี่ยนภาษา · ปุ่มพระจันทร์ สลับโหมดมืด/สว่าง</div>
+      </section>
+
+      <sc-if value="{{ isCust }}" hint-placeholder-val="{{ true }}"><section id="s2" style="padding:26px 28px;border-radius:20px;background:rgba(255,255,255,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 30px -12px rgba(11,95,88,.18);display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;font-weight:600;color:#0f9488;letter-spacing:.06em">02</div>
+        <h2 style="margin:0;font-size:22px">ประเมินราคา (ลูกค้า)</h2>
+        <ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.7;color:#2d323b">
+          <li><b>เลือกระบบพิมพ์</b> — OFFSET (งานกระดาษ กล่อง สติกเกอร์ หนังสือ), FLEXIBLE (บรรจุภัณฑ์อ่อนตัว ถุง ซอง), GRAVURE (ฟิล์มยอดพิมพ์สูง)</li>
+          <li><b>เลือกประเภทงาน</b> — ไอคอนประเภทงานจะเปลี่ยนตามระบบพิมพ์ที่เลือก</li>
+          <li><b>ขนาดของงาน</b> — กรอกกว้าง/ยาว/สูง (ซม.) หรือเลือกขนาดสำเร็จรูป</li>
+          <li><b>ชนิดวัสดุ</b> — แสดงเฉพาะวัสดุที่ใช้ได้กับประเภทงานนั้น</li>
+          <li><b>การพิมพ์</b> — จำนวนสี หน้าเดียว/สองหน้า</li>
+          <li><b>งานหลังพิมพ์</b> — เคลือบ ปั๊มนูน ฟอยล์ ไดคัท ซิปล็อค ฯลฯ (เลือกได้หลายอย่าง)</li>
+          <li><b>จำนวนและกำหนดส่ง</b> — ถ้าต้องการงานด่วนจะมีค่าเร่งงานเพิ่ม</li>
+          <li><b>ไฟล์งานและข้อมูลเพิ่มเติม</b> — กด “เลือกไฟล์งาน” แนบไฟล์ (PDF, AI, รูปภาพ) และพิมพ์หมายเหตุ</li>
+        </ol>
+        <div style="padding:12px 14px;border-radius:12px;background:#fffbeb;border:1px solid #fde68a;font-size:14px;line-height:1.6;color:#92400e">ราคาที่แสดงเป็นราคาประเมินเบื้องต้น ราคาจริงจะยืนยันหลังฝ่ายขายตรวจไฟล์งาน</div>
+      </section>
+
+      <section id="s3" style="padding:26px 28px;border-radius:20px;background:rgba(255,255,255,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 30px -12px rgba(11,95,88,.18);display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;font-weight:600;color:#0f9488;letter-spacing:.06em">03</div>
+        <h2 style="margin:0;font-size:22px">ตัวอย่าง 2D / 3D และอาร์ตเวิร์ก</h2>
+        <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.7;color:#2d323b">
+          <li><b>3D</b> — ลากเพื่อหมุนชิ้นงาน กด “หมุนอัตโนมัติ” หรือ “รีเซ็ต” เพื่อกลับมุมเดิม</li>
+          <li><b>2D แผ่นคลี่</b> — แสดงแบบคลี่พร้อมตัวเลขขนาด ชี้เมาส์ที่ตัวเลขเพื่อดูสูตร ใช้ปุ่ม − / + ซูม</li>
+          <li><b>ใส่อาร์ตเวิร์กหลายด้าน</b> — คลิกด้านที่ต้องการบนแผ่นคลี่ แล้วกดปุ่มใส่อาร์ตเวิร์กของด้านนั้น</li>
+          <li><b>เคลียร์อาร์ตเวิร์ก</b> — ลบรูปที่ใส่ไว้ทั้งหมด</li>
+          <li><b>Export</b> — บันทึกแผ่นคลี่เป็น PDF, JPG หรือ PNG (มีหน้าตัวอย่างก่อนบันทึก)</li>
+        </ul>
+        <div style="font-size:14px;line-height:1.6;color:#4a505c">อาร์ตเวิร์กจะบันทึกลงฐานข้อมูลเฉพาะเมื่อกด “บันทึก (เปรียบเทียบราคา)” หรือส่งใบเสนอราคา/สั่งผลิตเท่านั้น</div>
+      </section>
+
+      <section id="s4" style="padding:26px 28px;border-radius:20px;background:rgba(255,255,255,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 30px -12px rgba(11,95,88,.18);display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;font-weight:600;color:#0f9488;letter-spacing:.06em">04</div>
+        <h2 style="margin:0;font-size:22px">ขอใบเสนอราคา / สั่งผลิต</h2>
+        <ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.7;color:#2d323b">
+          <li>ตรวจสอบ “สเปกงาน” เหนือปุ่มในการ์ดราคา</li>
+          <li>กด <b>ขอใบเสนอราคา</b> หรือ <b>สั่งผลิตเลย</b> (สั่งผลิตแสดงเฉพาะโหมดเจ้าหน้าที่)</li>
+          <li>กรอกชื่อผู้ติดต่อ และอีเมลหรือเบอร์โทรอย่างน้อย 1 ช่อง ติ๊กยอมรับเงื่อนไข แล้วกดส่ง</li>
+          <li>ระบบจะออกเลขเอกสาร <span style="font-family:'IBM Plex Mono',monospace;font-size:14px">MEE-YYMMDD-XXXX</span> ดาวน์โหลด PDF ได้ทันที และแจ้งเตือนเจ้าหน้าที่ผ่าน LINE</li>
+        </ol>
+        <div style="font-size:14px;line-height:1.6;color:#4a505c">หลังส่งสำเร็จ ข้อมูลในฟอร์มจะถูกเคลียร์เพื่อเริ่มงานใหม่</div>
+      </section>
+
+      <section id="s5" style="padding:26px 28px;border-radius:20px;background:rgba(255,255,255,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 30px -12px rgba(11,95,88,.18);display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;font-weight:600;color:#0f9488;letter-spacing:.06em">05</div>
+        <h2 style="margin:0;font-size:22px">PDF · บันทึก · เปรียบเทียบ</h2>
+        <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.7;color:#2d323b">
+          <li><b>PDF</b> — แสดงใบประเมินราคาเป็นหน้ากระดาษ A4 กด “บันทึก PDF” เพื่อดาวน์โหลด หรือ “พิมพ์”</li>
+          <li><b>บันทึก (เปรียบเทียบราคา)</b> — เก็บสเปกและราคานี้ไว้เทียบกับตัวเลือกอื่น</li>
+          <li><b>เปรียบเทียบ</b> (แถบด้านบน) — ดูงานที่บันทึกไว้ข้างกัน เปิดกลับมาแก้ หรือลบได้</li>
+          <li><b>LINE</b> — แชร์สรุปงานและราคาไปยัง LINE</li>
+        </ul>
+      </section>
+
+      </sc-if><sc-if value="{{ isStaff }}" hint-placeholder-val="{{ false }}"><section id="s6" style="padding:26px 28px;border-radius:20px;background:rgba(255,255,255,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 30px -12px rgba(11,95,88,.18);display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;font-weight:600;color:#0f9488;letter-spacing:.06em">02</div>
+        <h2 style="margin:0;font-size:22px">เข้าสู่ระบบเจ้าหน้าที่</h2>
+        <ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.7;color:#2d323b">
+          <li>กด <b>เจ้าหน้าที่</b> บนแถบด้านบน</li>
+          <li>กรอกรหัสเจ้าหน้าที่ (เช่น <span style="font-family:'IBM Plex Mono',monospace;font-size:14px">MEE-0001</span>) และรหัสผ่าน กด “แสดง” เพื่อดูรหัสที่พิมพ์</li>
+          <li>หลังเข้าระบบ แถบด้านบนจะแสดงชื่อเจ้าหน้าที่ พร้อมปุ่ม <b>ใบเสนอราคา</b> · <b>ราคาต้นทุน</b> · <b>ออก</b></li>
+        </ol>
+        <div style="font-size:14px;line-height:1.6;color:#4a505c">บัญชีใหม่ต้องได้รับการอนุมัติ (สิทธิ์ staff) ในฐานข้อมูลก่อนจึงจะเข้าได้ ติดต่อผู้ดูแลระบบ</div>
+      </section>
+
+      <section id="s7" style="padding:26px 28px;border-radius:20px;background:rgba(255,255,255,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 30px -12px rgba(11,95,88,.18);display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;font-weight:600;color:#0f9488;letter-spacing:.06em">03</div>
+        <h2 style="margin:0;font-size:22px">รายละเอียดราคาและแถบกำไร</h2>
+        <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.7;color:#2d323b">
+          <li><b>แถบกำไร</b> — เลื่อน 0–60% ราคาขายจะเปลี่ยนทันที (มีผลเฉพาะใบเสนอราคาที่เจ้าหน้าที่ส่ง)</li>
+          <li><b>ตารางรายละเอียดราคา</b> — 2 คอลัมน์: <b>ต้นทุนจริง</b> (ต้นทุนเจ้าหน้าที่) และ <b>ราคาขาย</b> (ต้นทุนคำนวณที่ใช้กับลูกค้า)</li>
+          <li>ทุกแถวแสดงสูตรพร้อมตัวเลข ปริมาณ × ราคาต่อหน่วย และ <b>เฉลี่ยต่อชิ้น</b></li>
+          <li><b>เผื่อเสีย</b> — แสดงจำนวนเผื่อเสียที่รวมอยู่แล้ว และแก้ตัวเลขได้ในตาราง</li>
+          <li>แก้ราคาต่อหน่วยในตารางได้โดยตรง แล้วกดบันทึก</li>
+        </ul>
+      </section>
+
+      <section id="s8" style="padding:26px 28px;border-radius:20px;background:rgba(255,255,255,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 30px -12px rgba(11,95,88,.18);display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;font-weight:600;color:#0f9488;letter-spacing:.06em">04</div>
+        <h2 style="margin:0;font-size:22px">แก้ไขราคาต้นทุน</h2>
+        <p style="margin:0;font-size:15px;line-height:1.7;color:#2d323b">กด <b>ราคาต้นทุน</b> บนแถบด้านบน มี 3 แท็บ</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+          <div style="padding:14px 16px;border-radius:14px;background:#fff;border:1px solid rgba(15,148,136,.16);display:flex;flex-direction:column;gap:6px">
+            <div style="font-weight:600;font-size:15px;color:#0b5f58">ราคาต้นทุน</div>
+            <div style="font-size:14px;line-height:1.6;color:#2d323b">ค้นหาวัสดุ/ค่าบริการ แก้ต้นทุนจริงและต้นทุนลูกค้า ค่าเผื่อเสีย หน้ากว้างม้วนสูงสุด แล้วกดบันทึก</div>
+          </div>
+          <div style="padding:14px 16px;border-radius:14px;background:#fff;border:1px solid rgba(15,148,136,.16);display:flex;flex-direction:column;gap:6px">
+            <div style="font-weight:600;font-size:15px;color:#0b5f58">ขนาดแผ่นวัสดุ</div>
+            <div style="font-size:14px;line-height:1.6;color:#2d323b">กำหนดขนาดแผ่นที่มีขาย เช่น <span style="font-family:'IBM Plex Mono',monospace;font-size:13px">31x43" (1,2,4)</span> ระบบจะเลือกขนาดที่ถูกที่สุดให้เอง</div>
+          </div>
+          <div style="padding:14px 16px;border-radius:14px;background:#fff;border:1px solid rgba(15,148,136,.16);display:flex;flex-direction:column;gap:6px">
+            <div style="font-weight:600;font-size:15px;color:#0b5f58">ประวัติการแก้ไข</div>
+            <div style="font-size:14px;line-height:1.6;color:#2d323b">ดูว่าใครแก้ราคาอะไร เมื่อไร จากเท่าไรเป็นเท่าไร</div>
+          </div>
+        </div>
+        <div style="font-size:14px;line-height:1.6;color:#4a505c">ช่องที่แก้แล้วยังไม่บันทึกจะมีกรอบสีส้ม · ปุ่ม ↺ คืนค่าตั้งต้น</div>
+      </section>
+
+      <section id="s9" style="padding:26px 28px;border-radius:20px;background:rgba(255,255,255,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 30px -12px rgba(11,95,88,.18);display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;font-weight:600;color:#0f9488;letter-spacing:.06em">05</div>
+        <h2 style="margin:0;font-size:22px">ใบเสนอราคาและงานที่บันทึก</h2>
+        <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.7;color:#2d323b">
+          <li>กด <b>ใบเสนอราคา</b> บนแถบด้านบน เพื่อดูคำขอใบเสนอราคาและใบสั่งผลิตทั้งหมด</li>
+          <li>ค้นหาด้วยเลขที่ ชื่อ บริษัท อีเมล หรือเบอร์โทร · กด <b>รีเฟรช</b> เพื่อโหลดเอกสารใหม่</li>
+          <li>เปลี่ยนสถานะงาน เปิดงานในเครื่องคำนวณ ดูไฟล์งาน/อาร์ตเวิร์กที่แนบ หรือส่งอีเมลหาลูกค้า</li>
+          <li>แท็บ <b>งานที่บันทึก (ทุกเครื่อง)</b> — ดูงานที่ลูกค้าบันทึกเปรียบเทียบจากทุกเครื่อง</li>
+          <li><b>ลบ</b> — เลือกรายการแล้วลบ จะลบทั้งเอกสารและไฟล์ที่แนบออกจากฐานข้อมูล (กู้คืนไม่ได้)</li>
+        </ul>
+      </section>
+
+      <section id="s10" style="padding:26px 28px;border-radius:20px;background:rgba(255,255,255,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 30px -12px rgba(11,95,88,.18);display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;font-weight:600;color:#0f9488;letter-spacing:.06em">06</div>
+        <h2 style="margin:0;font-size:22px">การแจ้งเตือน LINE OA</h2>
+        <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.7;color:#2d323b">
+          <li>เมื่อมีคำขอใบเสนอราคาหรือสั่งผลิต ระบบจะส่งข้อความไปที่ LINE OA <b>@922akkqt</b></li>
+          <li>รับแจ้งเตือนในกลุ่ม: เชิญ OA เข้ากลุ่ม พิมพ์ <span style="font-family:'IBM Plex Mono',monospace;font-size:14px">id</span> แล้วนำ groupId (ขึ้นต้น C) ไปใส่ใน <span style="font-family:'IBM Plex Mono',monospace;font-size:14px">LINE_TO</span></li>
+          <li>รับแจ้งเตือนส่วนตัว: แอดเพื่อน OA พิมพ์ <span style="font-family:'IBM Plex Mono',monospace;font-size:14px">id</span> แล้วนำ userId (ขึ้นต้น U) ไปต่อท้าย คั่นด้วย ,</li>
+        </ul>
+      </section>
+
+      </sc-if><section id="s11" style="padding:26px 28px;border-radius:20px;background:rgba(255,255,255,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 30px -12px rgba(11,95,88,.18);display:flex;flex-direction:column;gap:14px">
+        <div style="font-size:12px;font-weight:600;color:#0f9488;letter-spacing:.06em">{{ faqNo }}</div>
+        <h2 style="margin:0;font-size:22px">คำถามที่พบบ่อย</h2>
+        <div style="display:flex;flex-direction:column;gap:4px"><div style="font-weight:600;font-size:15px">ราคาแสดง ฿0 หรือ “…”</div><div style="font-size:14px;line-height:1.65;color:#2d323b">ระบบกำลังคำนวณจากเซิร์ฟเวอร์ รอสักครู่ ถ้าค้างนานให้รีเฟรชหน้า หรือตรวจการเชื่อมต่ออินเทอร์เน็ต</div></div>
+        <div style="display:flex;flex-direction:column;gap:4px"><div style="font-weight:600;font-size:15px">เข้าระบบเจ้าหน้าที่ไม่ได้</div><div style="font-size:14px;line-height:1.65;color:#2d323b">ตรวจรหัสเจ้าหน้าที่/รหัสผ่าน และตรวจว่าบัญชีได้รับสิทธิ์ staff แล้ว</div></div>
+        <div style="display:flex;flex-direction:column;gap:4px"><div style="font-weight:600;font-size:15px">ลูกค้าเห็นต้นทุนหรือไม่</div><div style="font-size:14px;line-height:1.65;color:#2d323b">ไม่เห็น ต้นทุนลูกค้าคำนวณบนเซิร์ฟเวอร์เท่านั้น ลูกค้าเห็นเฉพาะราคาขายรวมและราคาต่อชิ้น</div></div>
+        <div style="display:flex;flex-direction:column;gap:4px"><div style="font-weight:600;font-size:15px">ปิดหน้าต่างเร็ว ๆ</div><div style="font-size:14px;line-height:1.65;color:#2d323b">กดปุ่ม Esc บนคีย์บอร์ดเพื่อปิดหน้าต่างที่อยู่บนสุด</div></div>
+      </section>
+
+      <div style="text-align:center;font-size:13px;color:#4a505c;padding-top:8px">Mee Printing · ระบบประเมินราคางานพิมพ์</div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tab: 'cust' };
+  componentDidMount(){ this.canStaff=new URLSearchParams(location.search).get('role')==='staff'; if(!this.canStaff){this.forceUpdate();return;} const h=(location.hash||'').replace('#',''); const n=+h.replace('s',''); if(n>=6&&n<=10) this.setState({tab:'staff'}); }
+  go(tab){ this.setState({tab}); setTimeout(()=>{const el=document.getElementById(tab==='staff'?'s6':'s2'); if(el) window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-84,behavior:'smooth'});},50); }
+  renderVals(){
+    const c=this.state.tab==='cust'||!this.canStaff, on={bg:'#fff',fg:'#0b5f58',sh:'0 1px 3px rgba(11,95,88,.15)'}, off={bg:'transparent',fg:'#4a505c',sh:'none'};
+    const A=c?on:off, B=c?off:on;
+    return { faqNo:c?'06':'07',faqNav:c?'6':'7', canStaff:!!this.canStaff, standalone:(()=>{try{return window.self===window.top}catch(e){return false}})(), isCust:c, isStaff:!c, toCust:()=>this.go('cust'), toStaff:()=>this.go('staff'),
+      tcBg:A.bg,tcFg:A.fg,tcSh:A.sh,tsBg:B.bg,tsFg:B.fg,tsSh:B.sh,
+      cBg:c?'#e9f8f5':'#fff',cBd:c?'#0f9488':'rgba(15,148,136,.16)',cSh:c?'0 0 0 3px rgba(15,148,136,.12)':'none',
+      sBg:!c?'#e9f8f5':'#fff',sBd:!c?'#0f9488':'rgba(15,148,136,.16)',sSh:!c?'0 0 0 3px rgba(15,148,136,.12)':'none' };
+  }
+}
+</script>
+</body>
+</html>
